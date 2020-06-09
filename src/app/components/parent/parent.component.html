@@ -1,0 +1,13 @@
+<h1>Parent Component</h1>
+<ul>
+    <li *ngFor="let p of personService.people$ | async">{{p.id}}: {{p.name}}</li>
+</ul>
+
+<input type="text" [(ngModel)]="newPerson" />
+<button type="button" (click)="addPerson()">Add person</button>
+
+<hr>
+
+<div *ngFor="let person of personService.people$ | async">
+    <app-child [person]="person"></app-child>
+</div>
